@@ -1,0 +1,31 @@
+1. What are the differences between global keyword and $GLOBALS?
+Answer/
+The global keyword is used to access and modify a specific global variable within the local scope of a function in PHP,
+ while $GLOBALS is a superglobal variable that provides access to all global variables from any scope in PHP scripts.
+
+2. Can you write a global keyword in a program with capital letters instead small? 
+If your answer is: yes or no, why?
+Answer/
+No, you cannot write the global keyword with capital letters because PHP is case-sensitive.
+The global keyword must be written in lowercase letters exactly as "global".
+If you attempt to use "GLOBAL" or any other variation with different case, 
+PHP will not recognize it as the global keyword, and you'll encounter a syntax error.
+
+3. Write a PHP script to enter 5 countries with their capital cities in an array and 
+print out in descending order.
+Answer/
+<?php
+
+$capitals = array(
+    "France" => "Paris",
+    "Germany" => "Berlin",
+    "Italy" => "Rome",
+    "Spain" => "Madrid",
+    "United Kingdom" => "London"
+);
+arsort($capitals);
+echo "Countries and Capitals in Descending Order:\n";
+foreach ($capitals as $capital => $country) {
+    echo "$capital - $country\n";
+}
+?>
