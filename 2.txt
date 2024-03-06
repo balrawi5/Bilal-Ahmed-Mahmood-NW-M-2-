@@ -1,0 +1,33 @@
+1-Which the preference single or double quotes for PHP developers and why?
+Answer/
+In PHP development, double quotes are generally preferred over single quotes due to their 
+support for variable interpolation, escape sequences, and consistency with HTML attributes.
+
+2. If you forget the semicolon in the end statement of PHP code, what will PHP?
+Answer/
+If you forget the semicolon at the end of a statement in PHP code, PHP will typically produce
+a syntax error when trying to parse the code. The interpreter expects statements to end with
+a semicolon to mark the end of each instruction, and omitting it can lead to unexpected behavior
+or syntax errors.
+
+3. Write a script to include a web page called page1 in another web page called
+page2 use include and require, explain the deference between them and
+discuss what is the useful from using the include files?.
+Answer/
+<!-- page1.php -->
+<html>
+<head><title>Page 1</title></head>
+<body>
+  <h1>This is Page 1</h1>
+</body>
+</html>
+
+<!-- page2.php -->
+<html>
+<head><title>Page 2</title></head>
+<body>
+  <h1>This is Page 2</h1>
+  <?php include('page1.php'); ?>
+  <?php require('page1.php'); ?>
+</body>
+</html>
