@@ -1,0 +1,33 @@
+1. 
+Answer/
+A regular expression (regex) in PHP is a pattern used for searching, matching, or replacing text.
+It's a concise way to describe complex string patterns and is commonly used for tasks like data validation,
+parsing, and manipulation
+
+2.
+Answer/
+preg_match(): Used to perform a pattern match on a string.
+preg_replace(): Used to perform a pattern-based search and replace in a string.
+preg_split(): Splits a string by a regular expression pattern.
+preg_match_all(): Performs a global regular expression match on a string and returns all matches.
+preg_quote(): Escapes special characters in a string for use in a regular expression pattern.
+
+3.
+Answer/
+preg_match() searches for the first occurrence of a pattern and returns a boolean value.
+preg_match_all() finds all occurrences of a pattern and returns the total count along with an array of all matches.
+
+4.
+Answer/
+<?php
+
+$text = "The quick brown fox jumps over the lazy dog.";
+
+$pattern = '/\bq\w+k\b/';
+
+$replacement = 'beautiful';
+
+$result = preg_replace($pattern, $replacement, $text);
+
+echo $result;
+?>
