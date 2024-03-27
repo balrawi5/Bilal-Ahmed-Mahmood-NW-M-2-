@@ -1,0 +1,41 @@
+1- As programming concepts with open and create a file. It is better to close 
+the file after you have finished working with it. Why?
+
+Answer/
+
+The PHP fclose() function is used to close an open file handle after performing operations such as reading, writing, or appending data to the file.
+It's important to use fclose() to release system resources associated with the file, prevent memory leaks, and ensure that data is properly written to disk.
+Additionally, closing files promptly helps maintain good programming practices and improves overall system performance.
+
+2- Write a program in PHP to create a file contains 5 short sentences then 
+read each character and print it in a single line.
+
+Answer/
+
+<?php
+
+$file = fopen("sentences.txt", "w");
+
+$sentences = array(
+    "The quick brown fox jumps over the lazy dog.",
+    "She sells seashells by the seashore.",
+    "Peter Piper picked a peck of pickled peppers.",
+    "How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+    "Betty Botter bought some butter, but she said the butter’s bitter."
+);
+
+foreach ($sentences as $sentence) {
+    fwrite($file, $sentence . "\n");
+}
+
+fclose($file);
+
+
+$file = fopen("sentences.txt", "r");
+
+while (!feof($file)) {
+    echo fgetc($file);
+}
+
+fclose($file);
+?>

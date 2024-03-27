@@ -1,0 +1,75 @@
+1- What are the differences between GET & POST methods?
+Answer/
+GET:
+
+Data is sent in the URL as query parameters.
+Less secure for sensitive data.
+Limited data length due to URL restrictions.
+Can be cached and is idempotent.
+POST:
+
+Data is sent in the request body.
+More secure for sensitive data.
+Can handle larger data sets.
+Not cached by default and is non-idempotent
+
+2- Write a PHP script to create a form for entering three names and their
+emails and then print the names with the emails on the web page as sorting
+ascending. (Use GET method in your form).
+Answer/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name and Email Form</title>
+</head>
+<body>
+    <h2>Enter Names and Emails</h2>
+    <form method="GET">
+        <label for="name1">Name 1:</label>
+        <input type="text" name="name1" id="name1" required>
+        <label for="email1">Email 1:</label>
+        <input type="email" name="email1" id="email1" required>
+        <br><br>
+        <label for="name2">Name 2:</label>
+        <input type="text" name="name2" id="name2" required>
+        <label for="email2">Email 2:</label>
+        <input type="email" name="email2" id="email2" required>
+        <br><br>
+        <label for="name3">Name 3:</label>
+        <input type="text" name="name3" id="name3" required>
+        <label for="email3">Email 3:</label>
+        <input type="email" name="email3" id="email3" required>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        $names = array($_GET["name1"], $_GET["name2"], $_GET["name3"]);
+        $emails = array($_GET["email1"], $_GET["email2"], $_GET["email3"]);
+        $data = array_combine($names, $emails);
+        ksort($data);
+        echo "<h2>Sorted Names and Emails</h2>";
+        echo "<ul>";
+        foreach ($data as $name => $email) {
+            echo "<li>$name: $email</li>";
+        }
+        echo "</ul>";
+    }
+    ?>
+</body>
+</html>
+
+3- There are many other methods besides those mentioned in this lecture that
+could be used to avoid hacking operations. Mention some of them and give
+an example of one of them.
+Answer/
+Q3/
+1) Input Validation: Ensure user input meets expected criteria to prevent injection attacks and vulnerabilities.
+2) Output Encoding: Encode user-generated content before rendering to prevent XSS attacks.
+3) Parameterized Queries: Use prepared statements to prevent SQL injection attacks.
+4) Session Management: Implement secure session practices, such as HTTPS and strong session ID generation.
+5) Authentication and Authorization: Use robust authentication mechanisms and fine-grained authorization.
+6) Security Headers: Utilize security headers in HTTP responses to mitigate common web security threats.
